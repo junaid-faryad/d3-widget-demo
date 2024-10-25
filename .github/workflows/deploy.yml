@@ -1,0 +1,38 @@
+name: Deploy test app to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Deploy when changes are pushed to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.18.2'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Set environment variables # Add environment variables here
+        run: |
+          echo "VITE_TLDS=shib,core" >> .env
+          echo "VITE_API_ENDPOINT=https://api-public-dev.d3.app" >> .env
+
+      - name: Build the widget test app for production
+        run: yarn build
+        env:
+          VITE_D3_API_KEY: ${{ secrets.VITE_D3_API_KEY }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
