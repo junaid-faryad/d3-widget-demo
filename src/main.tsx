@@ -1,4 +1,3 @@
-import '@d3-inc/marketplace-widget/styles.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
