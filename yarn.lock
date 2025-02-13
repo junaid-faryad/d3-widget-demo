@@ -4196,6 +4196,7 @@ __metadata:
     prettier-plugin-organize-imports: "npm:^4.0.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
+    react-frame-component: "npm:^5.2.7"
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^8.0.1"
     viem: "npm:^2.21.15"
@@ -8118,6 +8119,17 @@ __metadata:
   peerDependencies:
     react: ^18.3.1
   checksum: 10/3f4b73a3aa083091173b29812b10394dd06f4ac06aff410b74702cfb3aa29d7b0ced208aab92d5272919b612e5cda21aeb1d54191848cf6e46e9e354f3541f81
+  languageName: node
+  linkType: hard
+
+"react-frame-component@npm:^5.2.7":
+  version: 5.2.7
+  resolution: "react-frame-component@npm:5.2.7"
+  peerDependencies:
+    prop-types: ^15.5.9
+    react: ">= 16.3"
+    react-dom: ">= 16.3"
+  checksum: 10/bedee0c25075cbfb6d592991937640a9c8680f9017284e73ced338cc07348b3efc99121052b60ba0923d3d4ec1ed050348ddec452f059e0b947f6bff1d5bfe24
   languageName: node
   linkType: hard
 

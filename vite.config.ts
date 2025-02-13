@@ -12,5 +12,5 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  base: '/vite-app/',
+  base: '/d3-widget-demo/',
 });
