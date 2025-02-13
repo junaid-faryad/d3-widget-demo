@@ -1,7 +1,5 @@
 # Project
 
-## Getting Started
-
 ### Local setup
 
 to setup & run the project locally, you can follow these steps
@@ -11,7 +9,7 @@ to setup & run the project locally, you can follow these steps
 
 ## Built with
 
-This section includes libraries/frameworks used to bootstrap this d3-api-demo.
+This section includes libraries/frameworks used to bootstrap this project.
 
 - yarn
 - vite
