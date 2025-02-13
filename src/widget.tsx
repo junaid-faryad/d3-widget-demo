@@ -1,5 +1,8 @@
 import { D3Widget } from '@d3-inc/marketplace-widget';
 import '@d3-inc/marketplace-widget/styles.css';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
+import { useCryptoCheckout } from './hooks/useCryptoCheckout';
 
 const d3ApiKey = import.meta.env.VITE_D3_API_KEY;
 const d3ApiEndpoint = import.meta.env.VITE_API_ENDPOINT;
@@ -8,6 +11,8 @@ const widgetTlds = import.meta.env.VITE_TLDS ?? 'shib,core';
 const walletConnectKey = import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID;
 
 function Widget() {
+  const { address } = useAccount();
+  const { handleCryptoCheckout } = useCryptoCheckout();
   return (
     <div style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
       <a
@@ -18,6 +23,7 @@ function Widget() {
         <img src={'https://d3.app/favicon.png'} className="logo" alt="Vite logo" />
       </a>
       <h2 style={{ fontWeight: 500 }}>D3 Marketplace Widget Demo</h2>
+      <ConnectButton />
       <D3Widget
         appName="Widget Test app"
         config={{
@@ -26,6 +32,8 @@ function Widget() {
           showRecommendations: true,
           tlds: widgetTlds,
           apiEndpoint: d3ApiEndpoint,
+          walletAddress: address,
+          onPurchaseInit: handleCryptoCheckout,
           walletConfig: {
             walletConnectKey,
           },
