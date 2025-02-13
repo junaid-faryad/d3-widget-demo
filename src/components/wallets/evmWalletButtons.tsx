@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import * as React from 'react';
 
 import { useWalletButtons } from './hooks/useWalletButtons.js';
@@ -6,7 +5,7 @@ import { CoinbaseWalletIcon, MetaMaskWalletIcon, WalletConnectIcon } from './ico
 
 const ButtonContent = ({ icon, label }: { icon?: React.ReactElement | string; label: string }) => {
   return (
-    <span className={clsx('flex align-center gap-2 justify-center')}>
+    <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       {icon ? <span>{icon}</span> : null}
       <span className="font-semibold text-base">{label}</span>
     </span>
@@ -18,7 +17,7 @@ export default function EVMWalletButtons() {
     useWalletButtons();
 
   return (
-    <div className={clsx('flex items-center justify-center flex-col gap-3 mt-3')}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       {/* 
         Coinbase and wallet connect connectors don't have an icon
         Coinbase could be an extension as well so it could appear in both injected
@@ -31,11 +30,7 @@ export default function EVMWalletButtons() {
           // option
           if (areAdditionalInjectorsInserted && connector?.id === 'injected') return null;
           return (
-            <button
-              key={connector.id}
-              onClick={() => handleWalletConnection(connector)}
-              className="w-full"
-            >
+            <button key={connector.id} onClick={() => handleWalletConnection(connector)}>
               {connector?.id.toLowerCase().includes('walletconnect') ? (
                 <ButtonContent
                   icon={<WalletConnectIcon width={24} height={24} />}
@@ -47,7 +42,7 @@ export default function EVMWalletButtons() {
                   label={connector?.name}
                 />
               ) : connector?.id !== 'injected' ? (
-                <span className={clsx('flex items-center gap-2 justify-center')}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <span>
                     {/* Connector could contain icon links for third party domains and for the next.js Image component to work, */}
                     {/* they need to be added to the domain list first. Which might not possible without a thorough testing */}
