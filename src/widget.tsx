@@ -1,7 +1,7 @@
 import { D3Widget } from '@d3-inc/marketplace-widget';
 import '@d3-inc/marketplace-widget/styles.css';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
+import { ConnectWallet } from './components/wallets/connectWallet';
 import { useCryptoCheckout } from './hooks/useCryptoCheckout';
 
 const d3ApiKey = import.meta.env.VITE_D3_API_KEY;
@@ -23,7 +23,7 @@ function Widget() {
         <img src={'https://d3.app/favicon.png'} className="logo" alt="Vite logo" />
       </a>
       <h2 style={{ fontWeight: 500 }}>D3 Marketplace Widget Demo</h2>
-      <ConnectButton />
+      <ConnectWallet />
       <D3Widget
         appName="Widget Test app"
         config={{

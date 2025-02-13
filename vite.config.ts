@@ -9,6 +9,7 @@ export default defineConfig({
       'components/*': path.resolve(__dirname, './src/components'),
       'config/*': path.resolve(__dirname, './src/config'),
       'providers/*': path.resolve(__dirname, './src/providers'),
+      'lib/*': path.resolve(__dirname, './src/lib'),
     },
   },
   plugins: [react()],
